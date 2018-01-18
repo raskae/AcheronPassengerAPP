@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "224468722557",
+    "firebase_url": "https://android-acheronpassenger.firebaseio.com",
+    "project_id": "android-acheronpassenger",
+    "storage_bucket": "android-acheronpassenger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224468722557:android:75d6c56432b293a7",
+        "android_client_info": {
+          "package_name": "com.raskae.acheronpassenger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224468722557-8cqo8t2nrqln27mv72uqsbeslcr07eig.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.raskae.acheronpassenger",
+            "certificate_hash": "af554aaf6d539f88853fa22c81cf32fa6cd0bd51"
+          }
+        },
+        {
+          "client_id": "224468722557-joas9mkp7lh2uh4toiqcmdl544fcmg6n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAUKL8M1S7ZHnOHMSaFFi5d0STtzDBhxQk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "224468722557-joas9mkp7lh2uh4toiqcmdl544fcmg6n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,3 +1,26 @@
 <resources>
+    <!-- Login constants -->
+
     <string name="app_name">android-acheronPassenger</string>
+    <string name="btn_go_to_main_activity">Ir a main activity</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="signed_in">Signed in</string>
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="signed_out">Signed out</string>
+    <string name="account_list">Accounts</string>
+
+    <!-- /Login constants -->
+
+    <!-- Account List Items constants -->
+
+    <string name="account_alias">Alias</string>
+    <string name="account_url">URL</string>
+    <string name="account_login">Login</string>
+
+    <string name="account_email">Email</string>
+    <string name="account_d">URL</string>
+
+    <!-- /Account List Items constants -->
+
 </resources>
