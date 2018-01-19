@@ -16,6 +16,7 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.accounts.list.AccountListActivity
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -88,6 +89,9 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w(TAG, "signInResult:failed code=" + e.statusCode)
             updateUI(null)
+
+            //TODO borrar esto
+            goto_mainactivity_button.visibility=View.VISIBLE
         }
 
     }
