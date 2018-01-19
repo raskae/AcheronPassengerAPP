@@ -6,13 +6,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import com.raskae.acheronpassenger.R
 
-class MainActivity : AppCompatActivity() {
+class AccountListActivity : AppCompatActivity() {
 
     var accountsRecyclerView: RecyclerView? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_account_list)
 
         //accountsRecyclerView = findViewById(R.id.rv_main_account_list)
     }

@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.raskae.acheronpassenger.app.accounts.list.MainActivity" />
+        <activity android:name="com.raskae.acheronpassenger.app.accounts.list.AccountListActivity" />
         <activity android:name="com.raskae.acheronpassenger.app.login.LoginActivity" />
 
     </application>
