@@ -1,14 +1,13 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 26
-
-
+    compileSdkVersion rootProject.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
         versionName "1.0"
 
@@ -28,11 +27,28 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:26.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${rootProject.kotlin_version}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${rootProject.kotlinVersion}"
+
+    //Networking
+
+    // Retrofit
+    compile "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    compile "com.squareup.retrofit2:converter-gson:${rootProject.retrofitVersion}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofitVersion}"
+    compile "com.squareup.okhttp3:okhttp:${rootProject.okHttp3Version}"
+    compile "com.squareup.okhttp3:logging-interceptor:${rootProject.okHttp3Version}"
+    // Gson
+    implementation "com.google.code.gson:gson:${rootProject.gsonVersion}"
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxJavaVersion}"
+
+    //implementation "com.github.pwittchen:reactivenetwork-rx2:0.12.3"
+    // /Networking
+
+    //Testing
+    testImplementation "junit:junit:${rootProject.junitVersion}"
+    androidTestImplementation "com.android.support.test:runner:${rootProject.testRunnerVersion}"
+
 }
 repositories {
     mavenCentral()
