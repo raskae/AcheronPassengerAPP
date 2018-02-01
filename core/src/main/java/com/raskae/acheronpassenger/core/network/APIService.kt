@@ -4,6 +4,8 @@ import com.raskae.acheronpassenger.core.model.AccountDTO
 import com.raskae.acheronpassenger.core.model.UserDTO
 import com.raskae.acheronpassenger.core.network.constants.ServiceContants
 import io.reactivex.Observable
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -36,14 +38,20 @@ interface APIService {
 //                    })
 //                    .build()
 
+            val logging = HttpLoggingInterceptor()
+            logging.level = HttpLoggingInterceptor.Level.BODY
+
+            val client = OkHttpClient.Builder()
+            client.addInterceptor(logging)
+
             val retrofit = Retrofit.Builder()
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(GsonConverterFactory.create())
                     .baseUrl(ServiceContants.BASE_URL)
-//                    .client(client)
+                    .client(client.build())
                     .build()
 
-            return retrofit.create(APIService::class.java)
+            return retrofit.create<APIService>(APIService::class.java)
         }
     }
 

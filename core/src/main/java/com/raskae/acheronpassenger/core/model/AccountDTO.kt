@@ -11,11 +11,11 @@ data class AccountDTO(
         val owner: String,
         val password: String,
         val status: String,
-        val tags: List<String>,
         val url: String,
-        val owner_account: String, //raskae@gmail.com
+        val owner_account: String,
+        val tags: Collection<String>,
         val additional_data: List<AdditionalDataDTO>,
-        val coowners: List<String>
+        val coowners: Collection<String>
 ) {
 
 }

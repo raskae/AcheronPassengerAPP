@@ -11,11 +11,20 @@ import com.raskae.acheronpassenger.core.model.AccountDTO
 /**
  * Created by Raskae on 18/01/2018.
  */
-class AccountListRecyclerAdapter(val accountList: ArrayList<AccountDTO>) : RecyclerView.Adapter<AccountListRecyclerAdapter.AccountListViewHolder>() {
+class AccountListRecyclerAdapter(var accountList: ArrayList<AccountDTO>
+//                                 , private val listener: Listener
+) : RecyclerView.Adapter<AccountListRecyclerAdapter.AccountListViewHolder>() {
+
+    interface Listener {
+
+        fun onItemClick(accountDTO: AccountDTO)
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): AccountListViewHolder {
         val v = LayoutInflater.from(parent?.context).inflate(R.layout.account_list_item, parent, false)
-        return AccountListViewHolder(v)
+        return AccountListViewHolder(v
+                //,listener
+        )
     }
 
     override fun onBindViewHolder(holder: AccountListViewHolder?, position: Int) {
@@ -27,7 +36,11 @@ class AccountListRecyclerAdapter(val accountList: ArrayList<AccountDTO>) : Recyc
         return accountList.size
     }
 
-    class AccountListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+
+    class AccountListViewHolder(itemView: View
+            //, listener: Listener
+    ) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(accountModel: AccountDTO) {
             val textViewAlias = itemView.findViewById(R.id.tv_account_alias) as TextView
