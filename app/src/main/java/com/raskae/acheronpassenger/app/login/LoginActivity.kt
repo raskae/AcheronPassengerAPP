@@ -1,8 +1,8 @@
 package com.raskae.acheronpassenger.app.login
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Button
@@ -85,13 +85,14 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
             // Signed in successfully, show authenticated UI.
             updateUI(account)
         } catch (e: ApiException) {
+
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
             Log.w(TAG, "signInResult:failed code=" + e.statusCode)
             updateUI(null)
 
             //TODO borrar esto
-            goto_mainactivity_button.visibility=View.VISIBLE
+            goto_mainactivity_button.visibility = View.VISIBLE
         }
 
     }
