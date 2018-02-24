@@ -50,3 +50,6 @@ script: ./gradlew build
 branches:
   only:
     - master
+
+before_install:
+  - yes | sdkmanager "platforms;android-27"
