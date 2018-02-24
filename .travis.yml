@@ -11,13 +11,14 @@ android:
       - platform-tools
       - tools
 
-      - build-tools-26.0.2
-      - android-26
-      - addon-google_apis-google-26
+      - build-tools-27.0.2
+      - android-27
+      - addon-google_apis-google-27
       - extra-google-google_play_services
       - extra-android-support
       - extra-google-m2repository
       - extra-android-m2repository
+      #Need a devices here ofr instrumentation test
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -28,5 +29,5 @@ cache:
     - $HOME/.gradle/wrapper/
     - $HOME/.android/build-cache
 
-#script: ./gradlew build connectedCheck
+#script: ./gradlew build connectedCheck #for instrumentation test
 script: ./gradlew build

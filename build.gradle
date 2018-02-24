@@ -31,12 +31,12 @@ ext {
 
     kotlinVersion = '1.2.20'
 
-    compileSdkVersion = 26
+    compileSdkVersion = 27
     minSdkVersion = 15
     targetSdkVersion = 27
 
     //Android framework
-    designLibrary = '26.0.2'
+    designLibrary = '27.0.2'
     constraintLayoutVersion = '1.0.2'
     cardViewVersion = ''
 
