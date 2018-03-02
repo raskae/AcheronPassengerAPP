@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -37,6 +38,14 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:${rootProject.designLibrary}"
     implementation "com.android.support:cardview-v7:${rootProject.designLibrary}"
 
+    //dependecy injection - dagger
+    implementation "com.google.dagger:dagger:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+
+
     //rxJava
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxAndroidVersion}"
     implementation "com.jakewharton.rxbinding2:rxbinding:${rootProject.rxBindingVersion}"
@@ -49,6 +58,18 @@ dependencies {
     //Google Services
     compile "com.google.firebase:firebase-auth:${rootProject.firebaseVersion}"
     compile "com.google.android.gms:play-services-auth:${rootProject.gmsVersion}"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofitVersion}"
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okHttp3Version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.okHttp3Version}"
+    // Gson
+    implementation "com.google.code.gson:gson:${rootProject.gsonVersion}"
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxJavaVersion}"
+
 
     //Modules
     implementation project(':core')

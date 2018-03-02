@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
-import android.view.View
 import android.widget.LinearLayout
 import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.accounts.list.adapter.AccountListRecyclerAdapter
@@ -13,18 +12,15 @@ import com.raskae.acheronpassenger.core.model.AccountDTO
 import com.raskae.acheronpassenger.core.model.UserDTO
 import com.raskae.acheronpassenger.core.network.APIService
 import com.raskae.acheronpassenger.core.repository.AccountRepository
+import dagger.android.AndroidInjection
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
+import javax.inject.Inject
 
-class AccountListActivity : AppCompatActivity(), View.OnClickListener {
-
-    override fun onClick(v: View?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+class AccountListActivity : AppCompatActivity() {
 
     var disposable: Disposable? = null
-
 
     val apiService by lazy { APIService.create() }
 
@@ -33,11 +29,14 @@ class AccountListActivity : AppCompatActivity(), View.OnClickListener {
     var accountList = ArrayList<AccountDTO>()
 
     //val repository = AccountRepository(apiService)
-    var repository: AccountRepository? = null
+
+    @Inject
+    lateinit var repository: AccountRepository
 
     var adapter: AccountListRecyclerAdapter? = null
 
-            override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_account_list)
 
@@ -48,18 +47,8 @@ class AccountListActivity : AppCompatActivity(), View.OnClickListener {
         //adding a layoutmanager
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        repository = AccountRepository(apiService)
-
-        //getAllUsers()
 
         getAllAccounts()
-
-        //getAccountByAlias("testAccount")
-
-        //adding some dummy data to the list
-//        accountList.add(AccountDTO("gmail raskae", "raskae@gmail.com", "www.gmail.com"))
-//        accountList.add(AccountDTO("gmail tenni.pier", "tenni.pier@gmail.com", "www.gmail.com"))
-
 
         //creating our adapter
         adapter = AccountListRecyclerAdapter(accountList)
@@ -127,5 +116,9 @@ class AccountListActivity : AppCompatActivity(), View.OnClickListener {
                                     Log.d("ErrorResult", error.toString())
                                     error.printStackTrace()
                                 })
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 }

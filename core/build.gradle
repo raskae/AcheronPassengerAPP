@@ -29,14 +29,12 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:${rootProject.kotlinVersion}"
 
-    //Networking
-
     // Retrofit
-    compile "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
-    compile "com.squareup.retrofit2:converter-gson:${rootProject.retrofitVersion}"
-    compile "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofitVersion}"
-    compile "com.squareup.okhttp3:okhttp:${rootProject.okHttp3Version}"
-    compile "com.squareup.okhttp3:logging-interceptor:${rootProject.okHttp3Version}"
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofitVersion}"
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okHttp3Version}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.okHttp3Version}"
     // Gson
     implementation "com.google.code.gson:gson:${rootProject.gsonVersion}"
     // RxJava
