@@ -1,7 +1,7 @@
 <resources>
     <!-- Login constants -->
 
-    <string name="app_name">android-acheronPassenger</string>
+    <string name="app_name">Acheron Passenger</string>
     <string name="btn_go_to_main_activity">Ir a main activity</string>
     <string name="sign_out">Sign Out</string>
     <string name="signing_in">Signing in…</string>

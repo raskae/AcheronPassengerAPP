@@ -44,9 +44,10 @@ dependencies {
     implementation "com.google.dagger:dagger-android:$rootProject.daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$rootProject.daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$rootProject.daggerVersion"
+    provided 'org.glassfish:javax.annotation:10.0-b28'
 
-
-    //rxJava
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxJavaVersion}"
     implementation "io.reactivex.rxjava2:rxandroid:${rootProject.rxAndroidVersion}"
     implementation "com.jakewharton.rxbinding2:rxbinding:${rootProject.rxBindingVersion}"
 
@@ -54,6 +55,8 @@ dependencies {
     testImplementation "junit:junit:${rootProject.junitVersion}"
     androidTestImplementation "com.android.support.test:runner:${rootProject.testRunnerVersion}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${rootProject.espressoCoreVersion}"
+    //Mockito
+    testImplementation "org.mockito:mockito-inline:${rootProject.mockitoInlinerVersion}"
 
     //Google Services
     compile "com.google.firebase:firebase-auth:${rootProject.firebaseVersion}"
@@ -67,15 +70,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:${rootProject.okHttp3Version}"
     // Gson
     implementation "com.google.code.gson:gson:${rootProject.gsonVersion}"
-    // RxJava
-    implementation "io.reactivex.rxjava2:rxjava:${rootProject.rxJavaVersion}"
 
-
-    //Modules
-    implementation project(':core')
 }
-
-
-
 
 apply plugin: 'com.google.gms.google-services'
