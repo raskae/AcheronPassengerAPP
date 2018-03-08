@@ -1,8 +1,8 @@
 package com.raskae.acheronpassenger.app.accounts.list
 
 import com.raskae.acheronpassenger.app.util.SchedulerProvider
-import com.raskae.acheronpassenger.core.model.AccountDTO
-import com.raskae.acheronpassenger.core.repository.AccountRepository
+import com.raskae.acheronpassenger.core.model.AccountResource
+import com.raskae.acheronpassenger.core.repository.remote.AccountRepository
 import io.reactivex.Observable
 import io.reactivex.observers.TestObserver
 import io.reactivex.schedulers.Schedulers
@@ -18,7 +18,7 @@ import org.mockito.MockitoAnnotations
 class AccountListActivityViewModelTest {
 
     @Mock
-    var mockAccount: AccountDTO = Mockito.mock(AccountDTO::class.java)
+    var mockAccount: AccountResource = Mockito.mock(AccountResource::class.java)
 
     @Mock
     private lateinit var mockRepository: AccountRepository
@@ -37,7 +37,7 @@ class AccountListActivityViewModelTest {
     fun getAllAccounts() {
         Mockito.`when`(mockRepository.getAllAccounts()).thenReturn(Observable.just(arrayListOf(mockAccount)))
 
-        val testObserver = TestObserver<AccountDTO>()
+        val testObserver = TestObserver<AccountResource>()
 
 //        accountListActivityViewModel.getAllAccounts().subscribe()
 //                .subscribe(testObserver)

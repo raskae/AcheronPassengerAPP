@@ -1,6 +1,6 @@
-package com.raskae.acheronpassenger.core.repository
+package com.raskae.acheronpassenger.core.repository.remote
 
-import com.raskae.acheronpassenger.core.model.AccountDTO
+import com.raskae.acheronpassenger.core.model.AccountResource
 import com.raskae.acheronpassenger.core.model.UserDTO
 import com.raskae.acheronpassenger.core.network.APIService
 import io.reactivex.Observable
@@ -17,11 +17,11 @@ class AccountRepository @Inject constructor(private val apiService: APIService) 
         return apiService.getAllUsers()
     }
 
-    fun getAllAccounts(): Observable<List<AccountDTO>> {
+    fun getAllAccounts(): Observable<List<AccountResource>> {
         return apiService.getAllAccounts()
     }
 
-    fun getAccountByAlias(alias: String): Observable<AccountDTO> {
+    fun getAccountByAlias(alias: String): Observable<AccountResource> {
         return apiService.getAccountByAlias(alias)
     }
 

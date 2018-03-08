@@ -1,8 +1,8 @@
 package com.raskae.acheronpassenger.app.accounts.list
 
 import com.raskae.acheronpassenger.app.util.SchedulerProvider
-import com.raskae.acheronpassenger.core.model.AccountDTO
-import com.raskae.acheronpassenger.core.repository.AccountRepository
+import com.raskae.acheronpassenger.core.model.AccountResource
+import com.raskae.acheronpassenger.core.repository.remote.AccountRepository
 import io.reactivex.Observable
 
 /**
@@ -10,6 +10,9 @@ import io.reactivex.Observable
  */
 class AccountListActivityViewModel(private val repository: AccountRepository, private val schedulerProvider: SchedulerProvider) {
 
-    fun getAllAccounts(): Observable<List<AccountDTO>> = repository.getAllAccounts()
+//    fun getAllAccounts(): Observable<List<AccountResource>> = repository.getAllAccounts()
+//            .compose(schedulerProvider.getSchedulersForObservable())
+
+    fun getAllAccounts(): Observable<List<AccountResource>> = repository.getAllAccounts()
             .compose(schedulerProvider.getSchedulersForObservable())
 }

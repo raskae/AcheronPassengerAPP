@@ -4,10 +4,12 @@ package com.raskae.acheronpassenger.app.di
  * Created by Raskae on 02/03/2018.
  */
 import android.app.Application
+import android.arch.persistence.room.Room
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.raskae.acheronpassenger.app.util.SchedulerProvider
+import com.raskae.acheronpassenger.core.database.AppDatabase
 import com.raskae.acheronpassenger.core.network.APIService
 import com.raskae.acheronpassenger.core.network.constants.ServiceContants
 
@@ -69,5 +71,11 @@ class AppModule {
                 .baseUrl(ServiceContants.BASE_URL)
                 .client(okHttpClient)
                 .build().create<APIService>(APIService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideAppDatabase(){
+        Room.databaseBuilder(this, AppDatabase::class.java, "acheron-domain-db").build()
     }
 }

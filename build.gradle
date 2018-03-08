@@ -63,4 +63,7 @@ ext {
     //dependecy injection - dagger
     daggerVersion = "2.13"
 
+    //room
+    roomVersion = "1.0.0"
+
 }

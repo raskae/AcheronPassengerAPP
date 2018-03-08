@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.LinearLayout
 import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.accounts.list.adapter.AccountListRecyclerAdapter
-import com.raskae.acheronpassenger.core.model.AccountDTO
+import com.raskae.acheronpassenger.core.model.AccountResource
 import dagger.android.DaggerActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -24,7 +24,7 @@ class AccountListActivity : DaggerActivity() {
     //val repository = AccountRepository(apiService)
 
     var accountsRecyclerView: RecyclerView? = null
-    var accountList = ArrayList<AccountDTO>()
+    var accountList = ArrayList<AccountResource>()
 
     @Inject
     lateinit var accountListActivityViewModel: AccountListActivityViewModel
@@ -62,7 +62,7 @@ class AccountListActivity : DaggerActivity() {
                 .subscribe(
                         { result ->
                             Log.d("Result", "Account List: ${result}")
-                            accountList = result as ArrayList<AccountDTO>
+                            accountList = result as ArrayList<AccountResource>
                             adapter?.accountList = accountList
                             adapter?.notifyDataSetChanged()
                         },

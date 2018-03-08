@@ -1,15 +1,10 @@
 package com.raskae.acheronpassenger.core.model
 
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
-
 /**
  * Created by Raskae on 18/01/2018.
  */
-@Entity(tableName = "accounts")
-data class AccountDTO(
-        @PrimaryKey(autoGenerate = true)
-        val id: Long,
+data class AccountResource(
+        val _id: String,
         val alias: String,
         val email: String,
         val login: String,

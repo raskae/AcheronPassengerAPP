@@ -6,18 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.raskae.acheronpassenger.R
-import com.raskae.acheronpassenger.core.model.AccountDTO
+import com.raskae.acheronpassenger.core.model.AccountResource
 
 /**
  * Created by Raskae on 18/01/2018.
  */
-class AccountListRecyclerAdapter(var accountList: ArrayList<AccountDTO>
+class AccountListRecyclerAdapter(var accountList: ArrayList<AccountResource>
 //                                 , private val listener: Listener
 ) : RecyclerView.Adapter<AccountListRecyclerAdapter.AccountListViewHolder>() {
 
     interface Listener {
 
-        fun onItemClick(accountDTO: AccountDTO)
+        fun onItemClick(accountDTO: AccountResource)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): AccountListViewHolder {
@@ -42,7 +42,7 @@ class AccountListRecyclerAdapter(var accountList: ArrayList<AccountDTO>
             //, listener: Listener
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(accountModel: AccountDTO) {
+        fun bindItems(accountModel: AccountResource) {
             val textViewAlias = itemView.findViewById(R.id.tv_account_alias) as TextView
             val textViewLogin = itemView.findViewById(R.id.tv_account_login) as TextView
             val textViewUrl = itemView.findViewById(R.id.tv_account_url) as TextView

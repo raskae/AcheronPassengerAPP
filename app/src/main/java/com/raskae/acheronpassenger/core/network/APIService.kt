@@ -1,6 +1,6 @@
 package com.raskae.acheronpassenger.core.network
 
-import com.raskae.acheronpassenger.core.model.AccountDTO
+import com.raskae.acheronpassenger.core.model.AccountResource
 import com.raskae.acheronpassenger.core.model.UserDTO
 import com.raskae.acheronpassenger.core.network.constants.ServiceContants
 import io.reactivex.Observable
@@ -21,10 +21,10 @@ interface APIService {
     fun getAllUsers(): Observable<List<UserDTO>>
 
     @GET("accounts")
-    fun getAllAccounts(): Observable<List<AccountDTO>>
+    fun getAllAccounts(): Observable<List<AccountResource>>
 
     @GET("accounts")
-    fun getAccountByAlias(@Query("alias") alias: String): Observable<AccountDTO>
+    fun getAccountByAlias(@Query("alias") alias: String): Observable<AccountResource>
 
 
     companion object ServiceGenerator {

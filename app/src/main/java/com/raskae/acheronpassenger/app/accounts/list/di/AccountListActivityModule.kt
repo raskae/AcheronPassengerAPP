@@ -3,7 +3,7 @@ package com.raskae.acheronpassenger.app.accounts.list.di
 import com.raskae.acheronpassenger.app.accounts.list.AccountListActivityViewModel
 import com.raskae.acheronpassenger.app.util.SchedulerProvider
 import com.raskae.acheronpassenger.core.network.APIService
-import com.raskae.acheronpassenger.core.repository.AccountRepository
+import com.raskae.acheronpassenger.core.repository.remote.AccountRepository
 import dagger.Module
 import dagger.Provides
 
