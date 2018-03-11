@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name="com.raskae.acheronpassenger.app.splash.SplashActivity">
+        <activity android:name="com.raskae.acheronpassenger.app.ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,8 +18,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.raskae.acheronpassenger.app.accounts.list.AccountListActivity" />
-        <activity android:name="com.raskae.acheronpassenger.app.login.LoginActivity" />
+        <activity android:name="com.raskae.acheronpassenger.app.ui.accounts.list.AccountListActivity" />
+        <activity android:name="com.raskae.acheronpassenger.app.ui.login.LoginActivity" />
 
     </application>
 

@@ -3,16 +3,14 @@ package com.raskae.acheronpassenger.app.di
 /**
  * Created by Raskae on 02/03/2018.
  */
+
 import android.app.Application
-import android.arch.persistence.room.Room
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.raskae.acheronpassenger.app.util.SchedulerProvider
-import com.raskae.acheronpassenger.core.database.AppDatabase
-import com.raskae.acheronpassenger.core.network.APIService
-import com.raskae.acheronpassenger.core.network.constants.ServiceContants
-
+import com.raskae.acheronpassenger.app.data.network.APIService
+import com.raskae.acheronpassenger.app.data.network.constants.ServiceContants
 import dagger.Module
 import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -20,6 +18,7 @@ import io.reactivex.schedulers.Schedulers
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import repository.remote.RemoteAccountDatasource
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -74,8 +73,6 @@ class AppModule {
     }
 
     @Provides
-    @Singleton
-    fun provideAppDatabase(){
-        Room.databaseBuilder(this, AppDatabase::class.java, "acheron-domain-db").build()
-    }
+    fun provideRemoteDatasource(apiService: APIService) = RemoteAccountDatasource(apiService)
+
 }

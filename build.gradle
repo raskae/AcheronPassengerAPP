@@ -29,7 +29,7 @@ task clean(type: Delete) {
 
 ext {
 
-    kotlinVersion = '1.2.20'
+    kotlinVersion = '1.2.30'
 
     compileSdkVersion = 27
     minSdkVersion = 15

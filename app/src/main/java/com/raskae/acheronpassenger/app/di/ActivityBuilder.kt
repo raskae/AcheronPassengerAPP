@@ -1,7 +1,6 @@
 package com.raskae.acheronpassenger.app.di
 
-import com.raskae.acheronpassenger.app.accounts.list.AccountListActivity
-import com.raskae.acheronpassenger.app.accounts.list.di.AccountListActivityModule
+import com.raskae.acheronpassenger.app.ui.accounts.list.AccountListActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

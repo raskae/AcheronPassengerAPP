@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/account_list_default_background"
-    tools:context=".app.accounts.list.AccountListActivity">
+    tools:context="com.raskae.acheronpassenger.app.ui.accounts.list.AccountListActivity">
 
     <TextView
         android:id="@+id/tv_main_list_title"
