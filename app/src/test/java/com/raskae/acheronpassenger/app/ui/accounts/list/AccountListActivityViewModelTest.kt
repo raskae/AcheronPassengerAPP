@@ -1,9 +1,9 @@
 package com.raskae.acheronpassenger.app.ui.accounts.list
 
-import com.raskae.acheronpassenger.app.util.SchedulerProvider
+import com.raskae.acheronpassenger.app.data.repository.AccountRepository
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
-import repository.remote.RemoteAccountDatasource
-import io.reactivex.Observable
+import com.raskae.acheronpassenger.app.util.SchedulerProvider
+import io.reactivex.Flowable
 import io.reactivex.observers.TestObserver
 import io.reactivex.schedulers.Schedulers
 import org.junit.Before
@@ -21,7 +21,8 @@ class AccountListActivityViewModelTest {
     var mockAccount: AccountResource = Mockito.mock(AccountResource::class.java)
 
     @Mock
-    private lateinit var mockDatasourceRemote: RemoteAccountDatasource
+    private lateinit var mockAccountRepository: AccountRepository
+//    private lateinit var mockDatasourceRemote: RemoteAccountDatasource
 
     private val schedulerProvider = SchedulerProvider(Schedulers.trampoline(), Schedulers.trampoline())
 
@@ -30,12 +31,12 @@ class AccountListActivityViewModelTest {
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        accountListActivityViewModel = AccountListActivityViewModel(mockDatasourceRemote, schedulerProvider)
+        accountListActivityViewModel = AccountListActivityViewModel(mockAccountRepository, schedulerProvider)
     }
 
     @Test
     fun getAllAccounts() {
-        Mockito.`when`(mockDatasourceRemote.getAllAccounts()).thenReturn(Observable.just(arrayListOf(mockAccount)))
+        Mockito.`when`(mockAccountRepository.getAllAccounts()).thenReturn(Flowable.just(arrayListOf(mockAccount)))
 
         val testObserver = TestObserver<AccountResource>()
 
