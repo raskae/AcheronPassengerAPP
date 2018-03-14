@@ -7,11 +7,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
+import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
 
 /**
  * Created by Raskae on 18/01/2018.
  */
-class AccountListRecyclerAdapter(var accountList: ArrayList<AccountResource>
+class AccountListRecyclerAdapter(var accountList: ArrayList<AccountSummaryResource>
 //                                 , private val listener: Listener
 ) : RecyclerView.Adapter<AccountListRecyclerAdapter.AccountListViewHolder>() {
 
@@ -37,12 +38,11 @@ class AccountListRecyclerAdapter(var accountList: ArrayList<AccountResource>
     }
 
 
-
     class AccountListViewHolder(itemView: View
             //, listener: Listener
     ) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(accountModel: AccountResource) {
+        fun bindItems(accountModel: AccountSummaryResource) {
             val textViewAlias = itemView.findViewById(R.id.tv_account_alias) as TextView
             val textViewLogin = itemView.findViewById(R.id.tv_account_login) as TextView
             val textViewUrl = itemView.findViewById(R.id.tv_account_url) as TextView

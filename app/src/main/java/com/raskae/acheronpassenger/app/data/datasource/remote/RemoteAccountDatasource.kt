@@ -3,6 +3,7 @@ package repository.remote
 import com.raskae.acheronpassenger.app.data.network.APIService
 import com.raskae.acheronpassenger.app.domain.model.UserDTO
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
+import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
 import io.reactivex.Flowable
 import io.reactivex.Single
 import javax.inject.Inject
@@ -20,6 +21,10 @@ class RemoteAccountDatasource @Inject constructor(private val apiService: APISer
 
     fun getAllAccounts(): Flowable<List<AccountResource>> {
         return apiService.getAllAccounts()
+    }
+
+    fun getAllAccountsSummary(): Flowable<List<AccountSummaryResource>> {
+        return apiService.getAllAccountsSummary()
     }
 
     fun getAccountByAlias(alias: String): Single<AccountResource> {

@@ -2,6 +2,7 @@ package com.raskae.acheronpassenger.app.data.network
 
 import com.raskae.acheronpassenger.app.domain.model.UserDTO
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
+import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
 import io.reactivex.Flowable
 import io.reactivex.Single
 import retrofit2.http.GET
@@ -17,6 +18,9 @@ interface APIService {
 
     @GET("accounts")
     fun getAllAccounts(): Flowable<List<AccountResource>>
+
+    @GET("accounts/summary")
+    fun getAllAccountsSummary(): Flowable<List<AccountSummaryResource>>
 
     @GET("accounts")
     fun getAccountByAlias(@Query("alias") alias: String): Single<AccountResource>

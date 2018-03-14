@@ -2,6 +2,7 @@ package com.raskae.acheronpassenger.app.data.repository
 
 import com.raskae.acheronpassenger.app.domain.model.AccountDTO
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
+import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
 import io.reactivex.Flowable
 import io.reactivex.Single
 import repository.local.LocalAccountDatasource
@@ -14,8 +15,9 @@ class AccountRepository @Inject constructor(
 
 
     //override fun getAllAccountsSummary(): Flowable<AccountDTO>? {
-    fun getAllAccountsSummary(): List<AccountDTO>? {
-        TODO()
+    fun getAllAccountsSummary(): Flowable<List<AccountSummaryResource>> {
+
+        return remoteDatasource.getAllAccountsSummary()
         //return localDatasource.getAllAccount()
 //        return remoteDatasource.getAllAccounts().map { t: List<AccountResource> ->  {
 //            AccountDTO()

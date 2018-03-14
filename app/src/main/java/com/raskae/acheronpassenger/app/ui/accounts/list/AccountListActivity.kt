@@ -6,8 +6,9 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.LinearLayout
 import com.raskae.acheronpassenger.R
-import com.raskae.acheronpassenger.app.ui.accounts.list.adapter.AccountListRecyclerAdapter
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
+import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
+import com.raskae.acheronpassenger.app.ui.accounts.list.adapter.AccountListRecyclerAdapter
 import dagger.android.AndroidInjection
 import dagger.android.DaggerActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,6 +23,7 @@ class AccountListActivity : DaggerActivity() {
 
     var disposable: Disposable? = null
     var accountList = ArrayList<AccountResource>()
+    var accountSummaryList = ArrayList<AccountSummaryResource>()
 
     @Inject
     lateinit var accountListActivityViewModel: AccountListActivityViewModel
@@ -38,26 +40,26 @@ class AccountListActivity : DaggerActivity() {
         //adding a layoutmanager
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
 
-        getAllAccounts()
+//        getAllAccounts()
+        getAllAccountsSummary()
 
         //creating our adapter
-        adapter = AccountListRecyclerAdapter(accountList)
+        adapter = AccountListRecyclerAdapter(accountSummaryList)
 
         //now adding the adapter to recyclerview
         recyclerView.adapter = adapter
     }
 
+    fun getAllAccountsSummary() {
 
-    fun getAllAccounts() {
-
-        compositeDisposable.add(accountListActivityViewModel.getAllAccounts()
+        compositeDisposable.add(accountListActivityViewModel.getAllAccountsSummary()
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.io())
                 .subscribe(
                         { result ->
-                            Log.d("Result", "Account List: ${result}")
-                            accountList = result as ArrayList<AccountResource>
-                            adapter?.accountList = accountList
+                            Log.d("Result", "AccountSummary List: ${result}")
+                            accountSummaryList = result as ArrayList<AccountSummaryResource>
+                            adapter?.accountList = accountSummaryList
                             adapter?.notifyDataSetChanged()
                         },
                         { error ->
@@ -66,43 +68,7 @@ class AccountListActivity : DaggerActivity() {
                         }
                 )
         )
-
     }
-
-//    fun getAccountByAlias(alias: String) {
-//
-//        disposable =
-//                repository?.getAccountByAlias(alias)
-//                        ?.observeOn(AndroidSchedulers.mainThread())
-//                        ?.subscribeOn(Schedulers.io())
-//                        ?.subscribe(
-//                                { result ->
-//                                    Log.d("Result", "Account Intel: ${result}")
-//                                    accountList.add(result)
-//                                },
-//                                { error ->
-//                                    Log.d("ErrorResult", error.toString())
-//                                    error.printStackTrace()
-//                                })
-//    }
-
-
-//    fun getAllUsers() {
-//
-//        disposable =
-//                repository?.getAllUsers()
-//                        ?.observeOn(AndroidSchedulers.mainThread())
-//                        ?.subscribeOn(Schedulers.io())
-//                        ?.subscribe(
-//                                { result ->
-//                                    Log.d("Result", "User List: ${result}")
-//                                    var accountList = result as ArrayList<UserDTO>
-//                                },
-//                                { error ->
-//                                    Log.d("ErrorResult", error.toString())
-//                                    error.printStackTrace()
-//                                })
-//    }
 
     override fun onPause() {
         super.onPause()

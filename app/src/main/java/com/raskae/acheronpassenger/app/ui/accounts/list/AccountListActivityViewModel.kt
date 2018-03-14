@@ -1,8 +1,9 @@
 package com.raskae.acheronpassenger.app.ui.accounts.list
 
-import com.raskae.acheronpassenger.app.util.SchedulerProvider
 import com.raskae.acheronpassenger.app.data.repository.AccountRepository
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
+import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
+import com.raskae.acheronpassenger.app.util.SchedulerProvider
 import io.reactivex.Flowable
 import javax.inject.Inject
 
@@ -17,5 +18,7 @@ class AccountListActivityViewModel @Inject constructor(private val repository: A
     fun getAllAccounts(): Flowable<List<AccountResource>> = repository.getAllAccounts()
             .compose(schedulerProvider.getSchedulersForFlowable())
 
-    fun getAllAccountsSummary(): Flowable<List<AccountResource>> = repository.getAllAccounts()
+    fun getAllAccountsSummary(): Flowable<List<AccountSummaryResource>> = repository.getAllAccountsSummary()
+            .compose(schedulerProvider.getSchedulersForFlowable())
+    
 }
