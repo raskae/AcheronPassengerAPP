@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
@@ -46,6 +47,8 @@ class AccountListRecyclerAdapter(var accountList: ArrayList<AccountSummaryResour
             val textViewAlias = itemView.findViewById(R.id.tv_account_alias) as TextView
             val textViewLogin = itemView.findViewById(R.id.tv_account_login) as TextView
             val textViewUrl = itemView.findViewById(R.id.tv_account_url) as TextView
+            var imgViewDetail = itemView.findViewById(R.id.img_account_view) as ImageView
+            var imgEditDetail = itemView.findViewById(R.id.img_account_edit) as ImageView
             textViewAlias.text = accountModel.alias
             textViewLogin.text = accountModel.login
             textViewUrl.text = accountModel.url

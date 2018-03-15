@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.raskae.acheronpassenger">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.AcheronApplication"
@@ -21,6 +22,9 @@
         <activity android:name="com.raskae.acheronpassenger.app.ui.accounts.list.AccountListActivity" />
         <activity android:name="com.raskae.acheronpassenger.app.ui.login.LoginActivity" />
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5a4c8d98395fa37858aa31daa4008706d9578118" />
     </application>
 
 </manifest>
