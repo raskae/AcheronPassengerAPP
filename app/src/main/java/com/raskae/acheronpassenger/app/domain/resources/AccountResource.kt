@@ -14,6 +14,7 @@ data class AccountResource(
         val password: String,
         val status: String,
         val url: String,
+        val category: String,
         val owner_account: String,
         val tags: Collection<String>,
         val additional_data: List<AdditionalDataDTO>,

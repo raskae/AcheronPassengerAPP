@@ -48,7 +48,6 @@ class AccountListRecyclerAdapter(var accountList: ArrayList<AccountSummaryResour
             val textViewLogin = itemView.findViewById(R.id.tv_account_login) as TextView
             val textViewUrl = itemView.findViewById(R.id.tv_account_url) as TextView
             var imgViewDetail = itemView.findViewById(R.id.img_account_view) as ImageView
-            var imgEditDetail = itemView.findViewById(R.id.img_account_edit) as ImageView
             textViewAlias.text = accountModel.alias
             textViewLogin.text = accountModel.login
             textViewUrl.text = accountModel.url

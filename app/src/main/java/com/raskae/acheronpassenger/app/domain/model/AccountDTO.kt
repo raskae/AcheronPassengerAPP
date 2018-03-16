@@ -18,6 +18,7 @@ data class AccountDTO(
         val password: String,
         val status: String,
         val url: String,
+        val category: String,
         val owner_account: String
 //        ,
 //        val tags: Collection<String>,
