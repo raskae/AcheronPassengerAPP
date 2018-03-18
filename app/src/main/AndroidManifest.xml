@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.raskae.acheronpassenger">
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,21 +11,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name="com.raskae.acheronpassenger.app.ui.splash.SplashActivity">
+        <activity android:name=".app.ui.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name="com.raskae.acheronpassenger.app.ui.accounts.list.AccountListActivity" />
-        <activity android:name="com.raskae.acheronpassenger.app.ui.login.LoginActivity" />
+        <activity android:name=".app.ui.accounts.list.AccountListActivity" />
+        <activity android:name=".app.ui.login.LoginActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="5a4c8d98395fa37858aa31daa4008706d9578118" />
+
+        <activity android:name=".app.ui.accounts.crud.AccountDetailActivity"></activity>
     </application>
 
 </manifest>

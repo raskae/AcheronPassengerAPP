@@ -7,5 +7,7 @@ data class AccountSummaryResource(
         val _id: String,
         val alias: String,
         val login: String,
-        val url: String
+        val url: String,
+        val category: String,
+        val password: String
 )
