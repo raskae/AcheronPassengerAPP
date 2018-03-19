@@ -18,15 +18,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".app.ui.accounts.list.AccountListActivity" />
+
         <activity android:name=".app.ui.login.LoginActivity" />
+        <activity android:name=".app.ui.main.MainActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="5a4c8d98395fa37858aa31daa4008706d9578118" />
 
-        <activity android:name=".app.ui.accounts.crud.AccountDetailActivity" />
-        <activity android:name=".app.ui.main.MainActivity"></activity>
     </application>
 
 </manifest>
