@@ -10,7 +10,7 @@ import javax.inject.Inject
 /**
  * Created by Raskae on 02/03/2018.
  */
-class AccountListActivityViewModel @Inject constructor(private val repository: AccountRepository, private val schedulerProvider: SchedulerProvider) {
+class AccountListViewModel @Inject constructor(private val repository: AccountRepository, private val schedulerProvider: SchedulerProvider) {
 
 //    fun getAllAccounts(): Observable<List<AccountResource>> = datasourceRemote.getAllAccounts()
 //            .compose(schedulerProvider.getSchedulersForObservable())

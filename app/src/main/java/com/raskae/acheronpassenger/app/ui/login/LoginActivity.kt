@@ -15,7 +15,7 @@ import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.raskae.acheronpassenger.R
-import com.raskae.acheronpassenger.app.ui.accounts.list.AccountListActivity
+import com.raskae.acheronpassenger.app.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener {
@@ -142,7 +142,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun goToMainActivity() {
 
-        val intent = Intent(this, AccountListActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 }

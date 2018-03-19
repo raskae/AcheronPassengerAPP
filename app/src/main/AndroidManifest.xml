@@ -25,7 +25,8 @@
             android:name="io.fabric.ApiKey"
             android:value="5a4c8d98395fa37858aa31daa4008706d9578118" />
 
-        <activity android:name=".app.ui.accounts.crud.AccountDetailActivity"></activity>
+        <activity android:name=".app.ui.accounts.crud.AccountDetailActivity" />
+        <activity android:name=".app.ui.main.MainActivity"></activity>
     </application>
 
 </manifest>

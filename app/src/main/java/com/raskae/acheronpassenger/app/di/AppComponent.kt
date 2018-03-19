@@ -29,4 +29,6 @@ interface AppComponent {
     }
 
     fun inject(acheronApplication: AcheronApplication)
+
+    fun inject(accountListFragment: ActivityBuilder_BindAccountListFragment)
 }

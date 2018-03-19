@@ -15,7 +15,7 @@ import org.mockito.MockitoAnnotations
 /**
  * Created by Raskae on 06/03/2018.
  */
-class AccountListActivityViewModelTest {
+class AccountListViewModelTest {
 
     @Mock
     var mockAccount: AccountResource = Mockito.mock(AccountResource::class.java)
@@ -26,12 +26,12 @@ class AccountListActivityViewModelTest {
 
     private val schedulerProvider = SchedulerProvider(Schedulers.trampoline(), Schedulers.trampoline())
 
-    private lateinit var accountListActivityViewModel: AccountListActivityViewModel
+    private lateinit var accountListViewModel: AccountListViewModel
 
     @Before
     fun setUp() {
         MockitoAnnotations.initMocks(this)
-        accountListActivityViewModel = AccountListActivityViewModel(mockAccountRepository, schedulerProvider)
+        accountListViewModel = AccountListViewModel(mockAccountRepository, schedulerProvider)
     }
 
     @Test
@@ -40,7 +40,7 @@ class AccountListActivityViewModelTest {
 
         val testObserver = TestObserver<AccountResource>()
 
-//        accountListActivityViewModel.getAllAccounts().subscribe()
+//        accountListViewModel.getAllAccounts().subscribe()
 //                .subscribe(testObserver)
 
         testObserver.assertNoErrors()

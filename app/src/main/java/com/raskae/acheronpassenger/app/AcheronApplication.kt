@@ -11,15 +11,20 @@ import io.fabric.sdk.android.Fabric
 import javax.inject.Inject
 
 
-
 /**
  * Created by raskae on 1/18/18.
  */
-class AcheronApplication : Application(), HasActivityInjector {
+class AcheronApplication : Application(), HasActivityInjector
+//        , HasSupportFragmentInjector
+{
+//    @Inject
+//    lateinit var fragmentDispatchingAndroidInjector: AndroidInjector<Fragment>
+//    override fun supportFragmentInjector(): AndroidInjector<Fragment> = fragmentDispatchingAndroidInjector
 
     @Inject
-    lateinit var activityDispatchingAndroidInjector:
-            DispatchingAndroidInjector<Activity>
+    lateinit var activityDispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
+
+
 
     override fun onCreate() {
         super.onCreate()
@@ -34,5 +39,4 @@ class AcheronApplication : Application(), HasActivityInjector {
     }
 
     override fun activityInjector(): AndroidInjector<Activity> = activityDispatchingAndroidInjector
-
 }

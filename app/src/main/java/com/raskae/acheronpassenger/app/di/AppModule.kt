@@ -8,9 +8,9 @@ import android.app.Application
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.raskae.acheronpassenger.app.util.SchedulerProvider
 import com.raskae.acheronpassenger.app.data.network.APIService
 import com.raskae.acheronpassenger.app.data.network.constants.ServiceContants
+import com.raskae.acheronpassenger.app.util.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -74,5 +74,10 @@ class AppModule {
 
     @Provides
     fun provideRemoteDatasource(apiService: APIService) = RemoteAccountDatasource(apiService)
+
+//    @Provides
+//    fun provideFragmentManager(baseActivity: AppCompatActivity): FragmentManager {
+//        return baseActivity.supportFragmentManager
+//    }
 
 }
