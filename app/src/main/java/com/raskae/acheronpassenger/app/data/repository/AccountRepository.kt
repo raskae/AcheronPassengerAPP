@@ -11,11 +11,13 @@ import javax.inject.Inject
 
 class AccountRepository @Inject constructor(
         private val localDatasource: LocalAccountDatasource,
-                                            private val remoteDatasource: RemoteAccountDatasource) {
+        private val remoteDatasource: RemoteAccountDatasource) {
 
 
     //override fun getAllAccountsSummary(): Flowable<AccountDTO>? {
     fun getAllAccountsSummary(): Flowable<List<AccountSummaryResource>> {
+
+        println("WAAAAAAAAAAAAAAAAAAAAAAAAASAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
 
         return remoteDatasource.getAllAccountsSummary()
         //return localDatasource.getAllAccount()
@@ -35,4 +37,10 @@ class AccountRepository @Inject constructor(
     fun getAccountByParameter(parameter: String): Flowable<AccountDTO> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    fun saveAccount(accountResource: AccountResource): Single<AccountResource> {
+        return remoteDatasource.saveAccount(accountResource)
+    }
+
+
 }

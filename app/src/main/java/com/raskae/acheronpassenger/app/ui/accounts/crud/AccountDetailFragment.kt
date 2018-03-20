@@ -7,18 +7,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.raskae.acheronpassenger.R
+import javax.inject.Inject
 
-/**
- * A simple [Fragment] subclass.
- * Activities that contain this fragment must implement the
- * [AccountDetailFragment.OnFragmentInteractionListener] interface
- * to handle interaction events.
- * Use the [AccountDetailFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AccountDetailFragment : Fragment() {
+class AccountDetailFragment : Fragment(), View.OnClickListener, View.OnLongClickListener {
+
+    override fun onLongClick(v: View?): Boolean {
+        println("onLongClick")
+        return true
+    }
 
 
+    @Inject
+    lateinit var accountDetailViewModel: AccountDetailViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +31,21 @@ class AccountDetailFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_account_detail, container, false)
     }
 
-
-
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-
     }
 
     override fun onDetach() {
         super.onDetach()
-
     }
 
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.btn_save_account -> {
+                //accountDetailViewModel.saveAccount(AccountResource("",))
+                println("creando account")
+            }
+        }
+    }
 
 }

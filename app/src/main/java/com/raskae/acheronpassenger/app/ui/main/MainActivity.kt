@@ -1,28 +1,23 @@
 package com.raskae.acheronpassenger.app.ui.main
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.ui.accounts.crud.AccountDetailFragment
-import com.raskae.acheronpassenger.app.util.addFragment
-import dagger.android.AndroidInjection
+import com.raskae.acheronpassenger.app.ui.accounts.list.AccountListFragment
+import com.raskae.acheronpassenger.app.util.replaceFragment
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 
-class MainActivity : AppCompatActivity()
-//        , HasSupportFragmentInjector
-{
+class MainActivity : DaggerAppCompatActivity() {
 
+    //TODO Ptenni ver si me conviene injectar el fragment like this
 //    @Inject
-//    lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
-//    override fun supportFragmentInjector(): AndroidInjector<Fragment> {
-//        return fragmentDispatchingAndroidInjector
-//    }
+//    lateinit var accountListFragmentProvider: AccountListFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -30,8 +25,7 @@ class MainActivity : AppCompatActivity()
         toolbar.title = getString(R.string.app_name)
 //        toolbar.logo = getDrawable(R.drawable)
 
-//        val accountListFragment: AccountListFragment = AccountListFragment()
-//        addFragment(accountListFragment, R.id.main_container)
+        replaceFragment(AccountListFragment(), R.id.main_container)
     }
 
 
@@ -44,9 +38,10 @@ class MainActivity : AppCompatActivity()
 
         when (item?.itemId) {
             R.id.action_new -> {
-                //startActivity(Intent(this, AccountDetailActivity::class.java))
-                val accountDetailFragment: AccountDetailFragment = AccountDetailFragment()
-                addFragment(accountDetailFragment, R.id.main_container)
+                replaceFragment(AccountDetailFragment(), R.id.main_container)
+            }
+            R.id.action_refresh -> {
+                replaceFragment(AccountListFragment(), R.id.main_container)
             }
         }
 

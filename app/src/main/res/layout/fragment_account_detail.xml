@@ -137,4 +137,15 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_url"
         tools:checked="false" />
 
+    <Button
+        android:id="@+id/btn_save_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/button_save_account"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:onClick=""/>
+
 </android.support.constraint.ConstraintLayout>

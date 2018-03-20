@@ -5,7 +5,9 @@ import com.raskae.acheronpassenger.app.domain.resources.AccountResource
 import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
 import io.reactivex.Flowable
 import io.reactivex.Single
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Query
 
 /**
@@ -24,5 +26,8 @@ interface APIService {
 
     @GET("accounts")
     fun getAccountByAlias(@Query("alias") alias: String): Single<AccountResource>
+
+    @POST("accounts")
+    fun saveAccount(@Body accountResource: AccountResource): Single<AccountResource>
 
 }

@@ -1,4 +1,4 @@
-package com.raskae.acheronpassenger.app.di
+package com.raskae.acheronpassenger.app.ui.accounts.list.di
 
 import com.raskae.acheronpassenger.app.data.repository.AccountRepository
 import com.raskae.acheronpassenger.app.ui.accounts.list.AccountListViewModel

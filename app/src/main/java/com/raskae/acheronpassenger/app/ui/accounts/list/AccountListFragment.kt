@@ -1,8 +1,6 @@
 package com.raskae.acheronpassenger.app.ui.accounts.list
 
-import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
@@ -14,7 +12,7 @@ import com.raskae.acheronpassenger.R
 import com.raskae.acheronpassenger.app.domain.resources.AccountResource
 import com.raskae.acheronpassenger.app.domain.resources.AccountSummaryResource
 import com.raskae.acheronpassenger.app.ui.accounts.list.adapter.AccountListRecyclerAdapter
-import dagger.android.support.AndroidSupportInjection
+import dagger.android.support.DaggerFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
@@ -22,9 +20,13 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 
-class AccountListFragment : Fragment() {
+class AccountListFragment : DaggerFragment() {
 
-    private val compositeDisposable by lazy { CompositeDisposable() }
+    companion object {
+        const val TAG: String = "AccountListFragment"
+    }
+
+    val compositeDisposable by lazy { CompositeDisposable() }
 
     var disposable: Disposable? = null
     var accountList = ArrayList<AccountResource>()
@@ -34,11 +36,6 @@ class AccountListFragment : Fragment() {
     lateinit var accountListViewModel: AccountListViewModel
 
     var adapter: AccountListRecyclerAdapter? = null
-
-    override fun onAttach(context: Context?) {
-        AndroidSupportInjection.inject(this)
-        super.onAttach(context)
-    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

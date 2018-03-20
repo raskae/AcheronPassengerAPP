@@ -30,4 +30,8 @@ class RemoteAccountDatasource @Inject constructor(private val apiService: APISer
     fun getAccountByAlias(alias: String): Single<AccountResource> {
         return apiService.getAccountByAlias(alias)
     }
+
+    fun saveAccount(accountResource: AccountResource): Single<AccountResource> {
+        return apiService.saveAccount(accountResource)
+    }
 }
