@@ -16,6 +16,8 @@ import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import okhttp3.Cache
+import okhttp3.CacheControl
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import repository.remote.RemoteAccountDatasource
@@ -44,6 +46,7 @@ class AppModule {
     @Provides
     @Singleton
     fun provideOkHttpClient(application: Application): OkHttpClient {
+
         val interceptor = HttpLoggingInterceptor()
         interceptor.level = HttpLoggingInterceptor.Level.BASIC
 
@@ -51,12 +54,25 @@ class AppModule {
         // 10 MiB cache
         val cache = Cache(cacheDir, 10 * 1024 * 1024)
 
+        val networkCacheInterceptor = Interceptor { chain ->
+            val response = chain.proceed(chain.request())
+
+            var cacheControl = CacheControl.Builder()
+                    .maxAge(1, TimeUnit.MINUTES)
+                    .build()
+
+            response.newBuilder()
+                    .header("Cache-Control", cacheControl.toString())
+                    .build()
+        }
+
         return OkHttpClient.Builder()
                 .cache(cache)
                 .connectTimeout(30, TimeUnit.SECONDS)
                 .readTimeout(60, TimeUnit.SECONDS)
                 .writeTimeout(60, TimeUnit.SECONDS)
                 .addInterceptor(interceptor)
+                .addNetworkInterceptor(networkCacheInterceptor)
                 .build()
     }
 
